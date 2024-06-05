@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        js là ngôn ngữ đơ luồng(chỉ chạy 1 luồng duy nhất) code cahyj yuwf trái -> phải, trên -> dưới
+        tại sao js không đa luồng mà chỉ đơn luồng?
+        Khi đa luồng nó sẽ chia sẻ tài nguyên lẫn nhau, ảnh hưởng đến logic
+        code cho nên tư duy ban đầu của js là đơn luồng single-thread
+        khi gặp các tác vụ cần thời gian sử lí(chọc vào data base, gửi request lên sever, đọc file, ghi file,...) thì js sẽ không đợi các tác vụ này xử lí
+        xong rồi đén tác vụ khác
+        3 cách để giải quyết các tác vụ bất đồng bộ: 
+            - callback
+            - promise
+            - asyn-await
+     -->
+</body>
+<script>
+    // let sdt;
+    // function xinSodt() {
+    //     console.log("a gọi c xin số b");
+    //     console.log("c bảo chờ");
+    //     setTimeout(() => {
+    //         sdt = 123333;
+    //         callback(sdt);
+    //     }, 3000)
+    // }
+    // xinSodt(callback(sdt));
+    // function callback(sdt) {
+    //     console.log("a gọi b theo số", sdt);
+    // }
+    function customMap(arr,callback){
+        let resultArr = [];  
+        for (const value of arr) {
+            resultArr.push(callback(value));
+        } 
+        return resultArr;
+    }
+    let arr = [1,2,3,4];
+    console.log(customMap(arr, (item) => item*2));
+</script>
+
+</html>
